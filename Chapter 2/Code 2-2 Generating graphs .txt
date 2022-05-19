@@ -1,0 +1,11 @@
+1    library ( ggplot2 )
+2
+3 colnames <- c(’CN1 ’,’CN2 ’,’BL1 ’,’BL2 ’,’CL ’,’PP1 ’,’PP2 ’,’FRAME
+’,’ES ’,’ER ’)
+4 df <- read .csv (’es.csv ’, col . names = colnames )
+5 summary (df)
+6 df$P_ES = df$ES/(df$ FRAME * 2)
+7
+8 g <- ggplot ( data = df[df$CN1 ==10 & df$CN2 ==10 & df$CL ==28 ,] ,
+aes ( x = BL1 , y = P_ES , color = factor ( BL2 ) ) ) + geom _ line ()
+9 ggsave (’result .png ’,g )
